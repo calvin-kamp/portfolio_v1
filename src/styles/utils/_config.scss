@@ -1,0 +1,126 @@
+/* -------------------------------------------------------- */
+/*                          LAYOUT                          */
+/* -------------------------------------------------------- */
+
+$viewports: (
+    xs:         						0,
+    sm:         						576px,
+    md:         						768px,
+    lg:         						1280px,
+);
+
+$use-fixed-container-max-width:			false;
+
+$container-fixed-max-width:				1520px;
+
+$container-max-widths: (
+	sm:         						540px,
+	md:         						720px,
+	lg:         						1160px,
+);
+
+$enable-flex-container:					true;
+$enable-grid-container:					true;
+
+$grid-columns:  						12;
+
+$col-padding:      						1rem;
+$container-padding:						1rem;
+
+
+/* -------------------------------------------------------- */
+/*                        COLORSCHEME                       */
+/* -------------------------------------------------------- */
+
+$colors: (
+
+	white: 				#FFFFFF,
+	black: 				#000000,
+
+	border: 			#64645B,
+
+	overlay:			rgba(100, 100, 91, 0.5),
+
+	primary: 			#FF6D3A,
+	primary-hover: 		#F25F33,
+
+	ui-success:         #30B951,
+	ui-warning:         #FFC107,
+	ui-error:           #FA7B7B,
+	ui-information:     #35B6FF,
+
+	body-font: 			#EDEDED,
+	body-background: 	#171715,
+
+	code-font:			#F8F8F2,
+	code-background:	#363737
+);
+
+
+/* -------------------------------------------------------- */
+/*                        TYPOGRAPHY                        */
+/* -------------------------------------------------------- */
+
+$font-size-mobile:			                16px;
+$font-size-tablet:			                18px;
+$font-size-desktop:			                20px;
+
+$font-size-h1-mobile:			            40px;
+$font-size-h2-mobile:			            30px;
+$font-size-h3-mobile:			            22px;
+$font-size-h4-mobile:			            20px;
+$font-size-h5-mobile:			            16px;
+$font-size-h6-mobile:			            14px;
+
+$font-size-h1-tablet:			            50px;
+$font-size-h2-tablet:			            42px;
+$font-size-h3-tablet:			            24px;
+$font-size-h4-tablet:			            20px;
+$font-size-h5-tablet:			            18px;
+$font-size-h6-tablet:			            16px;
+
+$font-size-h1-desktop:		                70px;
+$font-size-h2-desktop:		                58px;
+$font-size-h3-desktop:		                30px;
+$font-size-h4-desktop:		                24px;
+$font-size-h5-desktop:		                20px;
+$font-size-h6-desktop:		                18px;
+
+$font-letter-spacing:                       normal;
+
+$font-weight-thin:			                100;
+$font-weight-extralight:			        200;
+$font-weight-light:			                300;
+$font-weight-normal:			            400;
+$font-weight-medium:		                500;
+$font-weight-semibold:		              	600;
+$font-weight-bold:			                700;
+$font-weight-extrabold:			            800;
+$font-weight-black:			                900;
+
+$font-family-body:		                    "Barlow", Arial, sans-serif;
+$font-family-headline:		                "Poppins", Arial, sans-serif;
+$font-family-monospace:		                Consolas, 'Lucida Console', Monaco, monospace;
+
+
+/* -------------------------------------------------------- */
+/*                       Z-INDEX LEVEL                      */
+/* -------------------------------------------------------- */
+
+$z-index-1:                                 100;
+$z-index-2:                                 200;
+$z-index-3:                                 300;
+$z-index-4:                                 400;
+$z-index-5:                                 500;
+$z-index-6:                                 600;
+$z-index-7:                                 700;
+$z-index-8:                                 800;
+$z-index-9:                                 900;
+
+
+/* -------------------------------------------------------- */
+/*                        ANIMATIONS                        */
+/* -------------------------------------------------------- */
+
+$transition-time:                           0.4s;
+$transition-time-fast:                      0.2s;

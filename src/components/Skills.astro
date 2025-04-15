@@ -1,0 +1,89 @@
+---
+import "@styles/components/_skills.scss";
+
+import Swiper from "@components/Swiper.astro";
+import IconAstro from "@components/icons/IconAstro.astro";
+import IconVue from "@components/icons/IconVue.astro";
+import IconNuxt from "@components/icons/IconNuxt.astro";
+import IconJavascript from "@components/icons/IconJavascript.astro";
+import IconAlpine from "@components/icons/IconAlpine.astro";
+import IconBootstrap from "@components/icons/IconBootstrap.astro";
+import IconSass from "@components/icons/IconSass.astro";
+import IconDrupal from "@components/icons/IconDrupal.astro";
+import IconStoryblok from "@components/icons/IconStoryblok.astro";
+import IconShopware from "@components/icons/IconShopware.astro";
+import IconConfluence from "@components/icons/IconConfluence.astro";
+import IconJira from "@components/icons/IconJira.astro";
+import IconBitbucket from "@components/icons/IconBitbucket.astro";
+import IconGit from "@components/icons/IconGit.astro";
+import IconPrismic from "@components/icons/IconPrismic.astro";
+import IconHtml from "@components/icons/IconHtml.astro";
+import IconCss from "@components/icons/IconCss.astro";
+import IconMjml from "@components/icons/IconMjml.astro";
+
+const technologyIcons = {
+    Html: IconHtml,
+    Css: IconCss,
+    Javascript: IconJavascript,
+    Sass: IconSass,
+    Bootstrap: IconBootstrap,
+    Astro: IconAstro,
+    Vue: IconVue,
+    Nuxt: IconNuxt,
+    Alpine: IconAlpine,
+    Mjml: IconMjml,
+    Storyblok: IconStoryblok,
+    Prismic: IconPrismic,
+    Drupal: IconDrupal,
+    Shopware: IconShopware,
+    Git: IconGit,
+    Jira: IconJira,
+    Confluence: IconConfluence,
+    Bitbucket: IconBitbucket,
+};
+
+const technologies = Object.keys(technologyIcons);
+
+const swiperSettings = {
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 0,
+    speed: 2500,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+    freeMode: true,
+    freeModeMomentum: false,
+    allowTouchMove: false,
+};
+
+const swiperSettingsJSON = JSON.stringify(swiperSettings);
+---
+
+<section class="skills">
+    <div class="container">
+        <div class="row">
+            <div class="skills__headline col-12">
+                <h2>Meine Skills</h2>
+            </div>
+
+            <div class="skills__swiper col-12">
+                <Swiper swiperSettings={swiperSettingsJSON}>
+                    {technologies.map((technology) => {
+                        const IconComponent = technologyIcons[technology];
+
+                        return IconComponent ? (
+                            <div class="swiper-slide">
+                                <IconComponent />
+
+                                <span>{technology}</span>
+                            </div>
+                        ) : null;
+                    })}
+                </Swiper>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+@use "@styles/utils" as *;
+
+.skills {
+    padding: 30px 0;
+    text-align: center;
+    overflow: hidden;
+
+    @include breakpoint(md) {
+        padding: 40px 0;
+    }
+
+    @include breakpoint(lg) {
+        padding: 50px 0;
+    }
+
+    &__headline {
+        margin-bottom: 10px;
+    }
+
+    &__swiper {
+        .swiper {
+            overflow: visible;
+
+            @include breakpoint(lg) {
+                overflow: hidden;
+
+                &::before,
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    height: 120%;
+                    width: 100px;
+                    z-index: $z-index-2;
+                    content: "";
+                }
+
+                &::before {
+                    left: 0;
+                    background-image: linear-gradient(to right, var(--color-body-background), rgba(var(--color-body-background-rgb), 0));
+                }
+
+
+                &::after {
+                    right: 0;
+                    background-image: linear-gradient(to left, var(--color-body-background), rgba(var(--color-body-background-rgb), 0));
+                }
+            }
+
+
+            &-slide {
+                width: 110px;
+
+                @include breakpoint(lg) {
+                    width: 130px;
+                }
+
+                svg {
+                    width: auto;
+                    height: 60px;
+                }
+
+                span {
+                    display: block;
+                }
+            }
+
+            &-wrapper {
+                transition-timing-function: linear;
+                overflow: visible;
+            }
+        }
+    }
+}

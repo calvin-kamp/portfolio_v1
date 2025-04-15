@@ -1,0 +1,38 @@
+---
+import '@styles/components/_hero.scss';
+---
+
+<section class="hero" data-js="hero">
+    <div class="container">
+        <div class="row">
+
+            <div class="hero__content col-12 col-md-8 col-md-left-2 col-lg-6">
+                <small class="fade-up" data-js="animatable" data-animation="fade-up" style="display: block; transition-delay: 0.2s">
+                    Hallo, mein Name ist
+                </small>
+
+                <h1 class="fade-up" data-js="animatable" data-animation="fade-up" style="transition-delay: 0.4s">
+                    Calvin Kamp
+                </h1>
+
+                <h2 class="fade-up" data-js="animatable" data-animation="fade-up" style="transition-delay: 0.6s">
+                    Frontend Developer
+                </h2>
+
+                <p class="fade-up" data-js="animatable" data-animation="fade-up" style="transition-delay: 0.8s">
+                    Als angehender Frontend-Entwickler mit einem Fokus auf <strong>Barrierefreiheit</strong> und <strong>Performance</strong> setze ich Designs in moderne, skalierbare Weblösungen um.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+import {animation} from '@scripts/animation';
+
+
+animation.init();
+
+
+</script>

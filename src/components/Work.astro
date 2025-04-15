@@ -1,0 +1,95 @@
+---
+import "@styles/components/_work.scss";
+import Project from "@components/Project.astro";
+import ExpandableContent from "@components/ExpandableContent.astro";
+
+const projects = [
+    {
+        name: "Lebensbaum",
+        url: "https://www.lebensbaum.com/",
+        technologies: ["Vue", "SCSS", "Javascript", "Shopware"],
+    },
+    {
+        name: "Centroderm",
+        url: "https://www.centroderm.de/",
+        technologies: ["Nuxt", "SCSS", "Javascript", "Storyblok"],
+    },
+    {
+        name: "Zwiesel Fortessa Group",
+        url: "https://www.zwiesel-fortessa-group.com/",
+        technologies: ["Astro", "SCSS", "Javascript"],
+    },
+    {
+        name: "Argon Hörbuch",
+        url: "https://www.argon-verlag.de/",
+        technologies: ["Nuxt", "SCSS", "Javascript", "Drupal"],
+    },
+    {
+        name: "Crimethrill",
+        url: "https://www.crimethrill.de/",
+        technologies: ["Astro", "SCSS", "Javascript", "Drupal", "Shopware"],
+    },
+    {
+        name: "Fischer Sauerländer",
+        url: "https://www.fischer-sauerlaender.de/",
+        technologies: ["Astro", "SCSS", "Javascript", "Drupal", "Shopware"],
+    },
+    {
+        name: "KiWi Verlag",
+        url: "https://www.kiwi-verlag.de/",
+        technologies: ["Astro", "SCSS", "Javascript", "Drupal", "Shopware"],
+    },
+    {
+        name: "Galiani",
+        url: "https://www.galiani.de/",
+        technologies: ["Astro", "SCSS", "Javascript", "Drupal", "Shopware"],
+    },
+    {
+        name: "Rowohlt",
+        url: "https://www.rowohlt.de/",
+        technologies: ["Astro", "SCSS", "Javascript", "Drupal", "Shopware"],
+    },
+    {
+        name: "Endlich KYSS",
+        url: "https://www.endlichkyss.de/",
+        technologies: ["Astro", "SCSS", "Javascript", "Drupal", "Shopware"],
+    },
+    {
+        name: "Argon Podcast",
+        url: "https://www.argon-podcast.de/",
+        technologies: ["Nuxt", "SCSS", "Javascript", "Drupal"],
+    },
+    {
+        name: "Argon Film",
+        url: "https://www.argon-film.de/",
+        technologies: ["Nuxt", "SCSS", "Javascript", "Drupal"],
+    },
+];
+---
+
+<section id="work" class="work">
+    <div class="container">
+        <div class="row">
+            <div class="work__headline col-12">
+                <h2>Projekte an denen ich beteiligt war</h2>
+            </div>
+
+            <div class="work__list col-12">
+                <ExpandableContent
+                    expandText="Mehr anzeigen"
+                    collapseText="Weniger anzeigen"
+                >
+                    <div class="row">
+                        {
+                            projects.map((project) => (
+                                <div class="work__project col-12 col-md-6 col-lg-4">
+                                    <Project projectData={project} />
+                                </div>
+                            ))
+                        }
+                    </div>
+                </ExpandableContent>
+            </div>
+        </div>
+    </div>
+</section>

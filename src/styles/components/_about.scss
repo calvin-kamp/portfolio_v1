@@ -1,0 +1,102 @@
+@use "@styles/utils" as *;
+
+.about {
+    padding: 60px 0;
+
+    @include breakpoint(md) {
+        padding: 80px 0;
+    }
+
+    @include breakpoint(lg) {
+        padding: 100px 0;
+    }
+
+    &__image {
+        margin-bottom: 25px;
+
+        @include breakpoint(md) {
+            margin-bottom: 40px;
+        }
+
+        @include breakpoint(lg) {
+            margin-bottom: 0;
+        }
+
+        figure {
+            @include breakpoint(lg) {
+                padding: 0 40px;
+            }
+
+            img {
+                border-radius: 10px;
+            }
+        }
+
+    }
+
+    &__text {
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__social-icons {
+        margin-top: 16px;
+
+        @include breakpoint(lg) {
+            margin-top: 24px;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+
+            li {
+                margin-right: 16px;
+                
+                &.about__social-link--mail {
+                    &:hover {
+                        svg {
+                            path {
+                                stroke: var(--color-primary);
+                            }
+                        }
+                    }
+                }
+
+                &.about__social-link--linkedin {
+                    &:hover {
+                        svg {
+                            path {
+                                &:first-of-type {
+                                    fill: var(--color-primary);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.about__social-link--github {
+                    &:hover {
+                        svg {
+                            path {
+                                &:first-of-type {
+                                    fill: var(--color-primary);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                svg {
+                    width: auto;
+                    height: 40px;
+
+                    path {
+                        transition: all $transition-time-fast linear;
+                    }
+                }
+            }
+        }
+    }
+}

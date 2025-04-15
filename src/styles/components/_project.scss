@@ -1,0 +1,109 @@
+@use "@styles/utils" as *;
+
+.project {
+    position: relative;
+    height: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: all $transition-time-fast linear;
+
+    &:hover {
+        border-color: var(--color-primary);
+        transform: translateY(-10px);
+
+        .project {
+            &__name {
+                color: var(--color-primary);
+            }
+
+            &__live-preview {
+                svg {
+                    path {
+                        stroke: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 16px 54px 16px 16px;
+
+        @include breakpoint(md) {
+            padding: 24px 60px 24px 24px;
+        }
+
+        @include breakpoint(lg) {
+            padding: 32px 72px 24px 24px;
+        }
+    }
+
+    .project__github-link {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+
+        @include breakpoint(md) {
+            bottom: 24px;
+            right: 24px;
+        }
+
+        @include breakpoint(lg) {
+            bottom: 32px;
+            right: 32px;
+        }
+
+        &:hover {
+            svg {
+                path {
+                    &:first-of-type {
+                        fill: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+
+    &__live-preview {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+
+        @include breakpoint(md) {
+            top: 24px;
+            right: 24px;
+        }
+
+        @include breakpoint(lg) {
+            top: 32px;
+            right: 32px;
+        }
+    }
+
+    svg {
+        width: auto;
+        height: 26px;
+
+        @include breakpoint(lg) {
+            height: 29px;
+        }
+
+        path {
+            transition: all $transition-time-fast linear;
+        }
+    }
+
+    &__technologies {
+        margin-top: auto;
+
+        li {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: get-rem(14px);
+        }
+    }
+}

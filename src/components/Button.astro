@@ -1,0 +1,51 @@
+---
+const {
+    buttonType = 'button',
+    openModalId = '',
+    closeModal = false,
+    openOffcanvasId = '',
+    closeOffcanvas = false,
+    primary = false,
+    outlined = false,
+    close = false,
+    link = false,
+    ariaLabel = null,
+    ariaExpanded = null,
+    ariaControls = '',
+    disabled = false,
+    additionalClasses = '',
+    onClick = '',
+    dataAttributes = {}
+} = Astro.props;
+
+const modifierClasses = [
+    primary && 'button--primary',
+    outlined && 'button--outlined',
+    close && 'button--close',
+    link && 'button--link',
+    additionalClasses
+].filter(Boolean).join(' ');
+
+const dynamicAttributes = {
+    ...(openModalId && { 'data-modal-open-id': openModalId }),
+    ...(closeModal && { 'data-modal-close': true }),
+    ...(openOffcanvasId && { 'data-offcanvas-open-id': openOffcanvasId }),
+    ...(closeOffcanvas && { 'data-offcanvas-close': true }),
+    ...(disabled && { disabled: true }),
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
+    ...(ariaExpanded !== null && { 'aria-expanded': ariaExpanded }),
+    ...(ariaControls && { 'aria-controls': ariaControls }),
+    ...dataAttributes
+};
+
+const alpineEvents = onClick ? { '@click': onClick } : {};
+---
+
+<button
+    type={buttonType}
+    class={`button ${modifierClasses}`}
+    { ...dynamicAttributes }
+    { ...alpineEvents}
+>
+    <slot />
+</button>

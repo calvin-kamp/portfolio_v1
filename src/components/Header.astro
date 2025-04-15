@@ -1,0 +1,69 @@
+---
+import '@styles/components/_header.scss';
+import Link from '@components/Link.astro';
+
+const navigation = [
+    {
+        label: 'Home',
+        link: '#home'
+    },
+    {
+        label: 'Über mich',
+        link: '#about'
+    },
+    {
+        label: 'Projekte',
+        link: '#projects'
+    },
+]
+---
+
+<header class="header" data-js="header">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12 col-md-8 col-md-left-2 col-lg-6 col-lg-left-3">
+                <div class="header__wrapper">    
+                    <nav class="header__navigation" data-navigation>
+                        <ul class="list--unstyled">
+                            {navigation.map((navItem => (
+                                <li>
+                                    <Link href={navItem.link} additionalClasses="link--no-decoration">
+                                        {navItem.label}
+                                    </Link>
+                                </li>
+                            )))}
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<script>
+    import {header} from "@scripts/header";
+
+    header.init();
+</script>
+
+<style lang="scss">
+.header {
+
+    &__wrapper {
+        padding: 1rem;
+    }
+
+    &__nav {
+        
+        ul {
+
+            li {
+                
+            }
+        }
+    }
+}
+</style>

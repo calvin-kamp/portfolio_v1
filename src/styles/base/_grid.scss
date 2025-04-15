@@ -1,0 +1,174 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                    FLEXBOX GRID LAYOUT                   */
+/* -------------------------------------------------------- */
+
+@if $enable-flex-container {
+
+    /* Base styles for flex containers */
+    .row {
+        margin: 0 -#{$col-padding};
+        @include flex();
+
+        /* Generate column classes based on grid columns */
+        @for $i from 1 through $grid-columns {
+
+            /* Standard column */
+            .col-#{$i} {
+                @include make-col($size: $i);
+            }
+
+            /* Column with left offset */
+            .col-left-#{$i} {
+                @include make-offset-col($size: $i, $direction: left);
+            }
+
+            /* Column with right offset */
+            .col-right-#{$i} {
+                @include make-offset-col($size: $i, $direction: right);
+            }
+
+            /* Reset column left offset */
+            .col-left-0 {
+                margin-left: 0;
+            }
+
+            /* Reset column right offset */
+            .col-right-0 {
+                margin-right: 0;
+            }
+
+        }
+
+        /* Full-size column class */
+        .col--fullsize {
+            @include make-col($fullsize: true);
+        }
+
+        /* Responsive column logic for specific viewports */
+        @each $viewport, $width in $viewports {
+
+            @if $viewport != "xs" {
+
+                @include breakpoint($viewport) {
+
+                    @for $i from 1 through $grid-columns {
+
+                        /* Responsive column */
+                        .col-#{$viewport}-#{$i} {
+                            @include make-col($size: $i);
+                        }
+
+                        /* Responsive left offset column */
+                        .col-#{$viewport}-left-#{$i} {
+                            @include make-offset-col($size: $i, $direction: left);
+                        }
+
+                        /* Responsive right offset column */
+                        .col-#{$viewport}-right-#{$i} {
+                            @include make-offset-col($size: $i, $direction: right);
+                        }
+
+                    }
+
+                    /* Reset responsive left offset column */
+                    .col-#{$viewport}-left-0 {
+                        margin-left: 0;
+                    }
+
+                    /* Reset responsive right offset column */
+                    .col-#{$viewport}-right-0 {
+                        margin-right: 0;
+                    }
+
+                    /* Responsive full-size column */
+                    .col-#{$viewport}--fullsize {
+                        @include make-col($fullsize: true);
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+/* -------------------------------------------------------- */
+/*                      CSS GRID LAYOUT                     */
+/* -------------------------------------------------------- */
+
+@if $enable-grid-container {
+
+    /* Base styles for grid containers */
+    .grid {
+        @include grid();
+
+        /* Generate grid column and row classes */
+        @for $i from 1 through $grid-columns {
+
+            /* Standard grid column */
+            .g-col-#{$i} {
+                @include make-g-col($size: $i);
+            }
+
+            /* Standard grid row */
+            .g-row-#{$i} {
+                @include make-g-row($size: $i);
+            }
+
+            /* Grid column starting point */
+            .g-col-start-#{$i} {
+                @include make-g-col($start: $i);
+            }
+
+            /* Grid row starting point */
+            .g-row-start-#{$i} {
+                @include make-g-row($start: $i);
+            }
+
+        }
+
+        /* Responsive grid logic for specific viewports */
+        @each $viewport, $width in $viewports {
+
+            @if $viewport != "xs" {
+
+                @include breakpoint($viewport) {
+
+                    @for $i from 1 through $grid-columns {
+
+                        /* Responsive grid column */
+                        .g-col-#{$viewport}-#{$i} {
+                            @include make-g-col($size: $i);
+                        }
+
+                        /* Responsive grid row */
+                        .g-row-#{$viewport}-#{$i} {
+                            @include make-g-row($size: $i);
+                        }
+
+                        /* Responsive grid column starting point */
+                        .g-col-#{$viewport}-start-#{$i} {
+                            @include make-g-col($start: $i);
+                        }
+
+                        /* Responsive grid row starting point */
+                        .g-row-#{$viewport}-start-#{$i} {
+                            @include make-g-row($start: $i);
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

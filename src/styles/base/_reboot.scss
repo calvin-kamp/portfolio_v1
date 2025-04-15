@@ -1,0 +1,202 @@
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                       BUTTON STYLES                      */
+/* -------------------------------------------------------- */
+
+button, .button {
+    display: inline-block;
+    padding: 0 32px;
+    min-width: 240px;
+    height: 56px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all $transition-time ease;
+    border-radius: 8px;
+    font-weight: $font-weight-medium;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+
+    /* -------------------------------------------------------- */
+    /*                      MODIFIER STYLES                     */
+    /* -------------------------------------------------------- */
+    
+    &--primary {
+        color: var(--color-body-background);
+        border-color: var(--color-primary);
+        background-color: var(--color-primary);
+
+        &:not([disabled]) {
+            &:hover {
+                color: var(--color-body-background);
+                border-color: var(--color-primary-hover);
+                background-color: var(--color-primary-hover);
+            }
+        }
+    }
+
+    &--outlined {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+        background-color: transparent;
+
+        &:not([disabled]) {
+            &:hover {
+                color: var(--color-body-background);
+                border-color: var(--color-primary-hover);
+                background-color: var(--color-primary-hover);
+            }
+        }
+    }
+
+    &--link {
+        min-width: 0;
+        height: auto;
+        padding: 8px 0;
+        border-radius: 0;
+
+        &:not([disabled]) {
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+
+    /* -------------------------------------------------------- */
+    /*                       STATE STYLES                       */
+    /* -------------------------------------------------------- */
+
+    &[disabled] {
+        color: var(--color-white);
+        border-color: var(--color-black);
+        background-color: var(--color-black);
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+
+
+/* -------------------------------------------------------- */
+/*                      UNORDERED LISTS                     */
+/* -------------------------------------------------------- */
+
+/* Base styles for unordered lists */
+ul, ul.list {
+    margin-bottom: 1rem;
+    list-style: none;
+
+    li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+
+        /* Nested lists spacing */
+        ul, ol {
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+    }
+
+    /* -------------------------------------------------------- */
+    /*                      MODIFIER STYLES                     */
+    /* -------------------------------------------------------- */
+
+    /* Styled unordered lists */
+    &.list--styled {
+        li {
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: inherit;
+                line-height: inherit;
+                color: var(--color-primary);
+
+                /* Custom marker for unordered list */
+                content: "+";
+            }
+        }
+    }
+
+    /* Horizontal unordered lists */
+    &.list--horizontal {
+        margin-bottom: 0;
+
+        li {
+            display: inline-block;
+            padding-left: 0;
+            margin: 0 20px 0 0;
+        }
+    }
+
+    /* Unstyled unordered lists */
+    &.list--unstyled {
+        margin-bottom: 0;
+
+        li {
+            padding-left: 0;
+            margin-bottom: 0;
+
+            /* Remove markers */
+            &::before {
+                content: none;
+            }
+
+            /* Remove nesting indentation */
+            ul, ol {
+                padding-left: 0;
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+
+/* -------------------------------------------------------- */
+/*                       MEDIA STYLES                       */
+/* -------------------------------------------------------- */
+
+/* Images */
+img {
+    width: 100%;
+    shape-margin: 1em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-style: italic;
+}
+
+/* Svgs */
+svg {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+/* -------------------------------------------------------- */
+/*                        ANIMATIONS                        */
+/* -------------------------------------------------------- */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+
+    &__active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity $transition-time linear, transform $transition-time linear;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+
+    &__active {
+        opacity: 1;
+        transition: opacity $transition-time linear;
+    }
+}

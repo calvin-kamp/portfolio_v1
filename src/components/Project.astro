@@ -1,0 +1,38 @@
+---
+import "@styles/components/_project.scss";
+import Link from "@components/Link.astro";
+
+import IconLink from "@components/icons/IconLink.astro";
+import IconGithub from "@components/icons/IconGithub.astro";
+
+const { projectData = {} } = Astro.props;
+---
+
+<article class="project">
+    <Link
+        href={projectData.url}
+        additionalClasses="project__link link--no-decoration"
+    >
+        <div class="project__header">
+            <h3 class="project__name">
+                {projectData.name}
+            </h3>
+
+            <div class="project__live-preview">
+                <IconLink />
+            </div>
+        </div>
+
+        <ul class="project__technologies list list--unstyled">
+            {projectData.technologies.map((technology) => (
+                <li>{technology}</li>
+            ))}
+        </ul>
+
+        {projectData?.githubLink?.length > 0 &&
+            <Link additionalClasses="project__github-link link--no-decoration" href={projectData.githubLink}>
+                <IconGithub />
+            </Link>
+        }
+    </Link>
+</article>

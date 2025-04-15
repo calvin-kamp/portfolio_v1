@@ -1,0 +1,28 @@
+---
+const {
+    href = '',
+    linkTarget = '',
+    additionalClasses = '',
+    ariaLabel = null,
+} = Astro.props;
+
+const currentURL = Astro.url.pathname;
+const isActive = href === currentURL;
+
+const modifierClasses = isActive ? 'link--active' : '';
+
+let targetType = linkTarget || (href?.match(/^(http(s)?|ftp):\/\//) ? '_blank' : '_self');
+let securityAttributes = targetType === '_blank' ? 'noopener noreferrer' : '';
+
+const dynamicAttributes = {
+    ...(ariaLabel && { 'aria-label': ariaLabel }),
+    ...(securityAttributes && { rel: securityAttributes }),
+    ...(targetType && { target: targetType }),
+};
+---
+
+<a 
+    href={href}
+    class={`link ${modifierClasses} ${additionalClasses}`}
+    { ...dynamicAttributes }
+><slot /></a>

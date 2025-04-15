@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@use '@styles/utils' as *;
+
+/* -------------------------------------------------------- */
+/*                  COLOR SCHEME VARIABLES                  */
+/* -------------------------------------------------------- */
+
+/* Generates CSS variables for color scheme */
+:root{
+    @each $color, $color-value in $colors {
+        --color-#{'#{$color}'}: #{$color-value};
+        --color-#{'#{$color}'}-rgb: #{color.channel($color-value, "red", $space: rgb)}, #{color.channel($color-value, "green", $space: rgb)}, #{color.channel($color-value, "blue", $space: rgb)};
+    }
+}

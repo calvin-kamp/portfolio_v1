@@ -1,0 +1,54 @@
+@use "@styles/utils" as *;
+
+.hero {
+    align-content: center;
+    height: 100vh;
+    padding: 60px 0;
+
+    @include breakpoint(md) {
+        padding: 80px 0;
+    }
+
+    @include breakpoint(lg) {
+        padding: 100px 0;
+    }
+
+    &__content {
+        small {
+
+            @include breakpoint(md) {
+                font-size: get-rem(16px);
+            }
+
+            @include breakpoint(lg) {
+                font-size: get-rem(20px);
+            }
+        }
+
+        h1 {
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            line-height: 1;
+        }
+
+        p {
+            font-size: get-rem(18px);
+            text-wrap: pretty;
+
+            @include breakpoint(md) {
+                font-size: get-rem(20px);
+            }
+
+            @include breakpoint(lg) {
+                font-size: get-rem(24px);
+            }
+
+            strong {
+                color: var(--color-primary);
+            }
+        }
+    }
+}

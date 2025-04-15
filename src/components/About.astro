@@ -1,0 +1,121 @@
+---
+import "@styles/components/_about.scss";
+
+import Image from "@components/Image.astro";
+import Link from "@components/Link.astro";
+import avatar from "@assets/avatar.png";
+
+import IconMail from "@components/icons/IconMail.astro";
+import IconGithub from "@components/icons/IconGithub.astro";
+import IconLinkedIn from "@components/icons/IconLinkedIn.astro";
+
+const socialLinks = [
+    {
+        name: "mail",
+        url: "mailto:c.kamp6696@gmail.com",
+        icon: IconMail,
+    },
+    {
+        name: "github",
+        url: "https://github.com/calvin-kamp",
+        icon: IconGithub,
+    },
+    {
+        name: "linkedin",
+        url: "https://www.linkedin.com/in/calvin-kamp-431168247/",
+        icon: IconLinkedIn,
+    }
+];
+---
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div
+                class="about__image col-10 col-left-1 col-md-6 col-md-left-3 col-lg-4 col-lg-left-1"
+            >
+                <figure>
+                    <Image
+                        src={avatar}
+                        width="235"
+                        height="235"
+                        imageSizes={[
+                            { breakpointWidth: 1280, imageWidth: 348 },
+                            { breakpointWidth: 768, imageWidth: 328 },
+                            { breakpointWidth: 320, imageWidth: 235 },
+                        ]}
+                        alt="Schwarz Weiß Portrait von Calvin Kamp"
+                    />
+                </figure>
+            </div>
+
+            <div
+                class="about__text col-12 col-md-10 col-md-left-1 col-lg-6 col-lg-left-0"
+            >
+                <h2
+                    class="fade-up"
+                    data-js="animatable"
+                    data-animation="fade-up"
+                    style="transition-delay: 0.2s"
+                >
+                    Über mich
+                </h2>
+
+                <p
+                    class="fade-up"
+                    data-js="animatable"
+                    data-animation="fade-up"
+                    style="transition-delay: 0.3s"
+                >
+                    <span>
+                        Mein Name ist Calvin Kamp, ich bin 28 Jahre alt und lebe
+                        in Wuppertal, Deutschland. Aktuell mache ich meine
+                        Ausbildung zum Mediengestalter mit Fokus auf
+                        Frontend-Entwicklung bei der <Link
+                            href="https://www.active-value.de/"
+                            >active value GmbH</Link
+                        >.
+                        <br /><br />
+
+                        Während meiner Ausbildung setze ich Designs in
+                        funktionale, moderne Webanwendungen um. Mein Schwerpunkt
+                        liegt auf der Arbeit mit Content-Management-Systemen wie
+                        Storyblok, Prismic und Drupal, kombiniert mit
+                        leistungsstarken JavaScript-Frameworks wie Vue und
+                        Astro.
+                        <br /><br />
+
+                        Bei der Entwicklung lege ich besonderen Wert auf
+                        Barrierefreiheit und Performance, damit Webanwendungen
+                        für alle Nutzer*innen schnell, zugänglich und effizient
+                        bleiben.
+                    </span>
+                </p>
+            </div>
+
+            <div
+                class="about__social-icons col-12 col-md-10 col-md-left-1 col-lg-6 col-lg-left-5"
+            >
+                <ul class="list list--unstyled">
+                    {socialLinks.map(({ name, url, icon: SocialIcon }, index) => {
+                        const transitionDelay = 0.4 + index * 0.1;
+                    
+                        return (
+                            <li
+                                class={`about__social-link about__social-link--${name.toLowerCase()} fade-up`}
+                                data-js="animatable"
+                                data-animation="fade-up"
+                                style={`transition-delay: ${transitionDelay}s`}
+                            >
+
+                                <Link href={url} ariaLabel={`Zur ${name} Seite`} additionalClasses="link--no-decoration">
+                                    <SocialIcon />
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

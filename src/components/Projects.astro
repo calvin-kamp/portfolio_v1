@@ -1,0 +1,41 @@
+---
+import "@styles/components/_projects.scss";
+import Project from "@components/Project.astro";
+
+const projects = [
+    {
+        name: "Astro Starter Kit",
+        url: "https://astro-starter-kit.calvin-kamp.de",
+        githubLink: "https://github.com/calvin-kamp/StarterKit",
+        technologies: ["Astro", "SCSS", "Javascript"],
+    },
+    {
+        name: "Portfolio Website",
+        url: "https://www.calvin-kamp.de",
+        githubLink: "https://github.com/calvin-kamp/portfolio_v1",
+        technologies: ["Astro", "SCSS", "Javascript"],
+    },
+];
+---
+
+<section id="projects" class="projects">
+    <div class="container">
+        <div class="row">
+            <div class="projects__headline col-12">
+                <h2>Projekte die ich Umgesetzt habe</h2>
+            </div>
+
+            <div class="projects__list col-12">
+                <div class="row">
+                    {
+                        projects.map((project) => (
+                            <div class="projects__project col-12 col-md-6 col-lg-4">
+                                <Project projectData={project} />
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
