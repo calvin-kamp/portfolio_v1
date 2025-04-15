@@ -1,6 +1,5 @@
 // @ts-check
 import mkcert from 'vite-plugin-mkcert';
-import alpine from '@astrojs/alpinejs';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
 import robotsConfig from './robots-txt.config';
@@ -15,5 +14,5 @@ export default defineConfig({
             https: true,
         },
     },
-    integrations: [alpine(), sitemap(), robotsTxt(robotsConfig)]
+    integrations: [sitemap(), robotsTxt(robotsConfig)]
 });
